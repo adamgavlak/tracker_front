@@ -52,12 +52,6 @@ export default {
               "X-Api-Key": res.data.api_key
             }
 
-            // axios.get('/current_user').then(res => {
-            //   Event.$emit('login', {current_user: res.data})
-            // })
-
-            console.log(axios.defaults.headers)
-
             this.inProgress = false
             this.$router.push('/projects')
           }

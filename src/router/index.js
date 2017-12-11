@@ -6,6 +6,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Projects from '@/components/Projects'
 import Trackings from '@/components/Trackings'
+import Profile from '@/components/Profile'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/trackings',
       name: 'Trackings',
       component: Trackings
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
     }
   ]
 })

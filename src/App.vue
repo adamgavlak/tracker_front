@@ -14,7 +14,7 @@
           </li>
 
           <li class="nav-item" v-if="current_user">
-            <p href="#" class="nav-link">Signed in as <strong v-text="current_user.email"></strong></p>
+            <p href="#" class="nav-link">Signed in as <router-link to="/profile"><strong v-text="current_user.email"></strong></router-link></p>
           </li>
           <li class="nav-item" v-if="current_user">
             <router-link to="/projects" class="nav-link">Projects</router-link>
@@ -73,9 +73,20 @@ export default {
       })
     })
 
+    Event.$on('fetchUser', () => {
+      axios.get('/current_user').then(res => {
+        this.current_user = res.data
+      })
+    })
+
     Event.$on('flash', data => {
-      this.flash = data.message
-      this.flashClass = data.class
+      this.flash = data.flash
+      this.flashClass = data.flashClass
+
+      setTimeout(() => {
+        this.flash = ""
+        this.flashClass = ""
+      }, 3000);
     })
   }
 }
